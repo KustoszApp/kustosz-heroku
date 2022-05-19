@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# ensure required internal variables are set
+echo 'export KUSTOSZ_BASE_DIR="$HOME/kustosz"' >> $PROFILE_PATH
+echo 'export KUSTOSZ_SUPERVISOR_DIR="$HOME/supervisor"' >> $PROFILE_PATH
+echo 'export DJANGO_SETTINGS_MODULE="kustosz.settings"' >> $PROFILE_PATH
+
+# when using Redis, redirect connection variable to dynaconf
+cat <<EOT >> "$PROFILE_PATH"
+if [ ! -z "\${REDIS_URL:+x}" ]; then
+    export DYNACONF_CELERY_BROKER_URL="\$REDIS_URL"
+fi
+EOT
+
+# when using external database, set Django db connection variables
+# through dynaconf
+cat <<EOT >> "$PROFILE_PATH"
+PARSE_DB_SCRIPT="\$HOME/bin/parse_db_url.py"
+
+if [ ! -z "\${DATABASE_URL:+x}" ] && [ -e "\$PARSE_DB_SCRIPT" ]; then
+    eval "\$(python3 "\$PARSE_DB_SCRIPT")"
+fi
+EOT

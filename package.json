@@ -1,0 +1,14 @@
+{
+  "name": "kustosz-heroku-dependencies",
+  "version": "22.05.0",
+  "engines": {
+      "node": ">=16.0 <17"
+  },
+  "description": "File that forces particular Node version on Heroku",
+  "author": "Mirek Długosz <mirek@mirekdlugosz.com> (https://mirekdlugosz.com)",
+  "license": "EUPL-1.2",
+  "homepage": "https://www.kustosz.org/",
+  "dependencies": {
+    "kustosz-node-readability": "*"
+  }
+}

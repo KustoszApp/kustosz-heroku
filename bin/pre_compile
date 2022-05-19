@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# vim: fdm=marker
+
+KUSTOSZ_WEB_UI_VERSION="22.05.0"
+
+KUSTOSZ_BASE_DIR="$BUILD_DIR/kustosz/"
+KUSTOSZ_SUPERVISOR_DIR="$BUILD_DIR/supervisor/"
+
+# {{{ ensure Kustosz-specific directory structure exists
+mkdir -p "$KUSTOSZ_BASE_DIR"/{settings,static,staticfiles,mediafiles}
+mkdir -p "$KUSTOSZ_SUPERVISOR_DIR"/run/
+# }}}
+
+# {{{ download frontend files
+# should used variable be user-configurable?
+curl -L https://github.com/KustoszApp/web-ui/releases/download/"$KUSTOSZ_WEB_UI_VERSION"/kustosz.tar.xz -o "$KUSTOSZ_BASE_DIR"/staticfiles/kustosz.tar.xz
+tar xf "$KUSTOSZ_BASE_DIR"/staticfiles/kustosz.tar.xz -C "$KUSTOSZ_BASE_DIR"/staticfiles/
+rm "$KUSTOSZ_BASE_DIR"/staticfiles/kustosz.tar.xz
+# }}}

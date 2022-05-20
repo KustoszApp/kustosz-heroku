@@ -25,3 +25,8 @@ production:
   STATICFILES_DIRS:
     - '/app/kustosz/staticfiles/'
   KUSTOSZ_READABILITY_NODE_ENABLED: True
+  CELERY_BROKER_URL: "filesystem://"
+  CELERY_BROKER_TRANSPORT_OPTIONS:
+    data_folder_out: '/app/kustosz/celery/queue'
+    data_folder_in: '/app/kustosz/celery/queue'
+    store_processed: False

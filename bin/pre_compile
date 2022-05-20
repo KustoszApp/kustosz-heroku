@@ -7,7 +7,7 @@ KUSTOSZ_BASE_DIR="$BUILD_DIR/kustosz/"
 KUSTOSZ_SUPERVISOR_DIR="$BUILD_DIR/supervisor/"
 
 # {{{ ensure Kustosz-specific directory structure exists
-mkdir -p "$KUSTOSZ_BASE_DIR"/{settings,static,staticfiles,mediafiles}
+mkdir -p "$KUSTOSZ_BASE_DIR"/{settings,static,staticfiles,mediafiles,celery/queue}
 mkdir -p "$KUSTOSZ_SUPERVISOR_DIR"/run/
 # }}}
 

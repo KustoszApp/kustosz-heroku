@@ -1,0 +1,53 @@
+{
+    "name": "Kustosz",
+    "description": "Focus on the worthwhile content with Kustosz, open source self-hosted web application. This version is designed to run on Heroku free plan.",
+    "keywords": [
+        "rss",
+        "atom",
+        "reader",
+        "django",
+        "python",
+        "vue.js"
+    ],
+    "website": "https://www.kustosz.org/",
+    "repository": "https://github.com/KustoszApp/kustosz-heroku",
+    "logo": "https://www.kustosz.org/kustosz_logo.svg",
+    "success_url": "/ui/",
+    "env": {
+        "DYNACONF_SECRET_KEY": {
+            "description": "A secret key for verifying the integrity of signed cookies.",
+            "generator": "secret"
+        },
+        "DYNACONF_ALLOWED_HOSTS": {
+            "description": "Comma-separated list of domain names where this Kustosz instance is available.",
+            "value": "[\"my_heroku_app_name.herokuapp.com\"]"
+        },
+        "ENV_FOR_DYNACONF": {
+            "value": "production"
+        }
+    },
+    "formation": [
+        {
+            "process": "web",
+            "quantity": 1,
+            "size": "free"
+        }
+    ],
+    "addons": [
+        {
+            "plan": "heroku-redis:hobby-dev"
+        },
+        {
+            "plan": "heroku-postgresql:hobby-dev"
+        }
+    ],
+    "buildpacks": [
+        {
+            "url": "heroku/nodejs"
+        },
+        {
+            "url": "heroku/python"
+        }
+    ]
+}
+

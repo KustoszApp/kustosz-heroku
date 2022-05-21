@@ -14,12 +14,19 @@
     "logo": "https://www.kustosz.org/kustosz_logo.svg",
     "success_url": "/ui/",
     "env": {
+        "KUSTOSZ_USERNAME": {
+            "description": "Name that you will use to log in",
+            "value": "admin"
+        },
+        "KUSTOSZ_PASSWORD": {
+            "description": "Password that you will use to log in"
+        },
         "DYNACONF_SECRET_KEY": {
             "description": "A secret key for verifying the integrity of signed cookies.",
             "generator": "secret"
         },
         "DYNACONF_ALLOWED_HOSTS": {
-            "description": "Comma-separated list of domain names where this Kustosz instance is available.",
+            "description": "Put your app name here. If you plan to access Kustosz under custom domain, put it after comma.",
             "value": "[\"my_heroku_app_name.herokuapp.com\"]"
         },
         "ENV_FOR_DYNACONF": {

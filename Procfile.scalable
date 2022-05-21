@@ -1,0 +1,5 @@
+web: gunicorn kustosz.wsgi --bind 0.0.0.0:$PORT
+worker: celery -A kustosz worker -l INFO -Q celery --concurrency $WEB_CONCURRENCY
+clock: celery -A kustosz beat -l INFO
+feedfetcher: celery -A kustosz worker -l INFO -Q feed_fetcher --concurrency 1
+release: bash /app/bin/entrypoint.release.sh

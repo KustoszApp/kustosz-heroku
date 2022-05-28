@@ -2,6 +2,7 @@
 # vim: fdm=marker
 
 KUSTOSZ_WEB_UI_VERSION="22.05.0"
+KUSTOSZ_SERVER_VERSION="22.05.0"
 
 KUSTOSZ_BASE_DIR="$BUILD_DIR/kustosz/"
 KUSTOSZ_SUPERVISOR_DIR="$BUILD_DIR/supervisor/"
@@ -16,4 +17,8 @@ mkdir -p "$KUSTOSZ_SUPERVISOR_DIR"/run/
 curl -L https://github.com/KustoszApp/web-ui/releases/download/"$KUSTOSZ_WEB_UI_VERSION"/kustosz.tar.xz -o "$KUSTOSZ_BASE_DIR"/staticfiles/kustosz.tar.xz
 tar xf "$KUSTOSZ_BASE_DIR"/staticfiles/kustosz.tar.xz -C "$KUSTOSZ_BASE_DIR"/staticfiles/
 rm "$KUSTOSZ_BASE_DIR"/staticfiles/kustosz.tar.xz
+# }}}
+
+# {{{ download requirements.txt file
+curl -L https://github.com/KustoszApp/server/releases/download/"$KUSTOSZ_SERVER_VERSION"/requirements-heroku.txt -o "$BUILD_DIR/requirements.txt"
 # }}}

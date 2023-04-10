@@ -1,8 +1,8 @@
 {
   "name": "kustosz-heroku-dependencies",
-  "version": "22.05.0",
+  "version": "23.04.0",
   "engines": {
-      "node": ">=16.0 <17"
+      "node": ">=18.0 <19"
   },
   "description": "File that forces particular Node version on Heroku",
   "author": "Mirek Długosz <mirek@mirekdlugosz.com> (https://mirekdlugosz.com)",
